@@ -1,9 +1,6 @@
-# def foo(a:”int”, b:”float”=5.0)  -> ”int”
-
-
 def factorial_recursive(input:"int", prev:"int"=0) -> "int": 
-    if isinstance(input, int) == False:
-        raise TypeError(f"input must be an integer!")
+    # if isinstance(input, int) == False:
+    #     raise TypeError(f"input must be an integer!")
     if input < 0:
         input = - input
     if input == 1:
@@ -13,6 +10,18 @@ def factorial_recursive(input:"int", prev:"int"=0) -> "int":
     prev1 = prev * (input - 1)
     output = input-1
     return factorial_recursive(output, prev1)
+
+def factorial_opti(input:"int") -> "int": 
+    if input == 1:
+        return 1
+    else:
+        return input * factorial_opti(input-1)
+    
+def factorial_sum(input:"list") -> "int": 
+    if len(input) == 1:
+        return input[0]
+    else:
+        return input[0] + factorial_sum(input[1:])
 
 def factorial_loop(input):
     if isinstance(input, int) == False:
@@ -26,11 +35,17 @@ def factorial_loop(input):
         j *= i
     return j
 
+# optional types defined in inputs by annotations:
+def rect_beand_index(b:[int, float], h:[int, float]) -> float: 
+    return (b * h ** 2) / 6.0
+
 
 def main():
-    print(factorial_recursive(-5))
+    print(factorial_recursive(5))
     print(factorial_loop(-5))
-
+    print(factorial_opti(5))
+    input_list = [10, 1, 4 , 5, 6]
+    print(factorial_sum(input_list))
 
 if __name__ == '__main__':
     main()
