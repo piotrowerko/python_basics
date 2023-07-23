@@ -40,12 +40,18 @@ def rect_beand_index(b:[int, float], h:[int, float]) -> float:
     return (b * h ** 2) / 6.0
 
 
+def print_input(in_string):
+    if isinstance(input, str) == False:
+        raise TypeError(f"input must be an integer!")
+    print(in_string)
+
 def main():
-    print(factorial_recursive(5))
-    print(factorial_loop(-5))
-    print(factorial_opti(5))
-    input_list = [10, 1, 4 , 5, 6]
-    print(factorial_sum(input_list))
+    # print(factorial_recursive(5))
+    # print(factorial_loop(-5))
+    # print(factorial_opti(5))
+    # input_list = [10, 1, 4 , 5, 6]
+    # print(factorial_sum(input_list))
+    print_input(2)
 
 if __name__ == '__main__':
     main()
