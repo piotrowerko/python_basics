@@ -11,6 +11,9 @@ class Student():
     def __str__(self):
         return f"I am a student, my name is {self.name} {self.last_name}\
             my age is {self.age}"
+            
+    def __add__(self, other):
+        return f' sum of ages of two students is: {self.age + other.age}'
     
     @classmethod
     def from_birth_year(cls, name, last_name, birth_year):
